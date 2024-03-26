@@ -54,7 +54,7 @@ const TourPackages = () => {
             <Layouts>
                
             <h1 className="text-3xl font-bold mb-8">List of Tour Packages</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
                     {tourPackages.map(tourPackage => (
                         <div key={tourPackage.id} className="border rounded-lg p-4">
                             <Link href={`/tour/${tourPackage.id}`}>

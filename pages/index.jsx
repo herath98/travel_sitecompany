@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import DestinationCard from '../src/components/DestinationCard';
 import { destinations } from '../data/destinations';
 import CarouselGallery from '../src/components/CarouselGallery';
+import MapContainer from '../src/components/Map';
 
 
 
@@ -152,6 +153,8 @@ const HomePage = () => {
           )}
         </div>
       </nav>
+
+      <MapContainer />
 
 
 
