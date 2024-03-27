@@ -1,6 +1,7 @@
 // pages/ScrollableGalleryPage.js
 import React from 'react';
 import Gallery from '../src/components/Gallery';
+import CarouselGallery from '@/src/components/CarouselGallery';
 
 const ScrollableGalleryPage = () => {
     // Assuming you have some images data
@@ -16,7 +17,7 @@ const ScrollableGalleryPage = () => {
             <div className="container mx-auto">
                 <h1 className="text-3xl font-bold my-8">Scrollable Gallery</h1>
                 <div className="overflow-x-auto">
-                    <Gallery images={images} />
+                    <CarouselGallery images={images} />
                 </div>
             </div>
             <div className="container mx-auto">

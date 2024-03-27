@@ -108,6 +108,9 @@ const HomePage = () => {
               <Link href="/ContactUs">
                 <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
               </Link>
+              <Link href="/GalleryPage">
+                <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
+              </Link>
             </div>
             {/* Responsive Menu */}
             <div className="md:hidden">
@@ -148,6 +151,9 @@ const HomePage = () => {
                 <Link href="/ContactUs">
                   <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
                 </Link>
+                <Link href="/GalleryPage">
+                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
+                </Link>
               </div>
             </div>
           )}
@@ -176,7 +182,7 @@ const HomePage = () => {
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
+                <img src="/t1.png" className="h-8 me-3" alt="FlowBite Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
               </a>
             </div>
