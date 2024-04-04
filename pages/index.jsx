@@ -5,6 +5,9 @@ import { destinations } from '../data/destinations';
 import CarouselGallery from '../src/components/CarouselGallery';
 import MapContainer from '../src/components/Map';
 import { Button, Dropdown } from 'flowbite-react';
+import Testimonial from '../src/components/Testimonial';
+
+
 
 const options = [
   { label: 'Item 1', url: '#' },
@@ -220,63 +223,88 @@ const HomePage = () => {
             )}
           </div>
         </nav>
- 
+
 
         <div className='bg-white pb-5 grid grid-cols-1 md:grid-cols-2'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
-              <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
-              <p className='text-black py-2 px-5'>Experience the wonder of Sri lanka`s breathitaking destination and create memories that will latas a lifetime </p>
-              <div className='flex py-2 px-5 gap-2'>
-                <Button className='bg-black'>Book</Button>
-                <Button className='bg-none text-black border-spacing-0'>Explore</Button>
-              </div>
+            <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
+            <p className='text-black py-2 px-5'>Experience the wonder of Sri lanka`s breathitaking destination and create memories that will latas a lifetime </p>
+            <div className='flex py-2 px-5 gap-2'>
+              <Button className='bg-black'>Book</Button>
+              <Button className='bg-none text-black border-spacing-0'>Explore</Button>
+            </div>
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-             <img src='./colombo.jpg' alt="" />
+            <img src='./colombo.jpg' alt="" />
           </div>
-        
+
         </div>
         <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-2'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
-              <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
-              <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you're seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
-             
+            <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
+            <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you're seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
+
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-             <img src='./colombo.jpg' alt="" />
+            <img src='./colombo.jpg' alt="" />
           </div>
-        
+
         </div>
         <div className='bg-white py-5'>
-          <div className='text-center md:text-3xl lg:text-5xl px-2 text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
+          <div >
+          <div className='mx-auto w-2/3 mb-5 text-center  md:text-3xl lg:text-5xl px-2 text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
+          </div>
           <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-3'>
-          <div className=' grid col-span-1 md:col-span-1 m-auto'>
+            <div className=' grid col-span-1 md:col-span-1 m-auto'>
               <h1 className='text-xl text-center lg:text-3xl text-black font-bold px-2 py-5 lg:p-5'>Book Your Ideal Accommodation
-for a Memorable Stay</h1>
+                for a Memorable Stay</h1>
               <p className='text-black text-center py-2 px-2'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
-              
+
               <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
-              
-          </div>
-          <div className='grid col-span-1 md:col-span-1 m-auto '>
+
+            </div>
+            <div className='grid col-span-1 md:col-span-1 m-auto '>
               <h1 className='text-xl text-center lg:text-3xl text-black font-bold p-5'>Book Your Ideal Accommodation
-for a Memorable Stay</h1>
+                for a Memorable Stay</h1>
               <p className='text-black text-center py-2 px-5'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
-              
+
               <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
-              
-          </div>
-          <div className=' grid col-span-1 md:col-span-1 m-auto '>
+
+            </div>
+            <div className=' grid col-span-1 md:col-span-1 m-auto '>
               <h1 className='text-xl text-center lg:text-3xl text-black font-bold p-5'>Book Your Ideal Accommodation
-for a Memorable Stay</h1>
+                for a Memorable Stay</h1>
               <p className='text-black text-center py-2 px-5'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
-              
+
               <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
-              
+
+            </div>
+
           </div>
+        </div>
+        {/* <div className="container mx-auto px-4 py-16">
+          <Testimonial
+            name="John Doe"
+            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
+            title="Tour Guide, Tabroscape"
+          />
+              <Testimonial
+            name="John Doe"
+            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
+            title="Tour Guide, Tabroscape"
+          />
+              <Testimonial
+            name="John Doe"
+            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
+            title="Tour Guide, Tabroscape"
+          />
+        </div> */}
+
+
         
-        </div>
-        </div>
+    
+
+
         <MapContainer />
 
 
