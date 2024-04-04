@@ -247,22 +247,32 @@ const HomePage = () => {
           </div>
         
         </div>
-        <div>
-          <div>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
+        <div className='bg-white py-5'>
+          <div className='text-center md:text-3xl lg:text-5xl px-2 text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
           <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-3'>
-          <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
-              <h1 className='text-xl lg:text-5xl text-black font-bold p-5'>Book Your Ideal Accommodation
+          <div className=' grid col-span-1 md:col-span-1 m-auto'>
+              <h1 className='text-xl text-center lg:text-3xl text-black font-bold px-2 py-5 lg:p-5'>Book Your Ideal Accommodation
 for a Memorable Stay</h1>
-              <p className='text-black py-2 px-5'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
+              <p className='text-black text-center py-2 px-2'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
               
               <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
               
           </div>
-          <div className=' m-2 grid col-span-1 md:col-span-1'>
-            
+          <div className='grid col-span-1 md:col-span-1 m-auto '>
+              <h1 className='text-xl text-center lg:text-3xl text-black font-bold p-5'>Book Your Ideal Accommodation
+for a Memorable Stay</h1>
+              <p className='text-black text-center py-2 px-5'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
+              
+              <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
+              
           </div>
-          <div className=' m-2 grid col-span-1 md:col-span-1'>
-
+          <div className=' grid col-span-1 md:col-span-1 m-auto '>
+              <h1 className='text-xl text-center lg:text-3xl text-black font-bold p-5'>Book Your Ideal Accommodation
+for a Memorable Stay</h1>
+              <p className='text-black text-center py-2 px-5'>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
+              
+              <Button className='text-black mx-auto   w-1/2 '>Learn More </Button>
+              
           </div>
         
         </div>
