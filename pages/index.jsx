@@ -17,6 +17,42 @@ const options = [
 
 const HomePage = () => {
 
+  const [faqs, setFaqs] = useState([
+    {
+      question: 'How to book a tour?',
+      answer: 'To book a tour with Tabroscape, simply browse our tour packages, select your preferred one, and follow the booking instructions on our website. You can also contact our customer support for assistance.',
+    },
+    {
+      question: 'What is your cancellation policy?',
+      answer:
+        'Our cancellation policy varies depending on the tour package and booking time. Please refer to the specific tour details or contact us for more information.',
+    },
+    {
+      question: "What destinations are available?",
+      answer: "Tabroscape offers tours to popular locations in Sri Lanka, including Colombo, Kandy, Galle, Sigiriya, and more. Check out our tour packages to explore these amazing destinations."
+
+    },
+    {
+      question: "Are meals included?",
+      answer: "Yes, most of our tour packages include meals. The specific details about meals and dining options are mentioned in the package description. Feel free to contact us for any dietary restrictions or special requests."
+    },
+    {
+      question: "What is the cancellation policy?",
+      answer: "Our cancellation policy varies depending on the tour package and the time of cancellation. Please refer to our Terms and Conditions for detailed information. If you have any specific questions, our customer support team is here to assist you."
+    },
+    {
+      question: "Is travel insurance included?",
+      answer: 'No, travel insurance is not included in our tour packages. We highly recommend purchasing travel insurance to protect yourself against any unforeseen circumstances. Our team can provide recommendations for reliable travel insurance providers.'
+    }
+  ]);
+
+  const toggleFaq = (index) => {
+    setFaqs(
+      faqs.map((faq, i) =>
+        i === index ? { ...faq, isOpen: !faq.isOpen } : faq
+      )
+    );
+  };
   const [fontSize, setFontSize] = useState('70px');
   const [isMobile, setIsMobile] = useState('20px');
 
@@ -225,7 +261,7 @@ const HomePage = () => {
         </nav>
 
 
-        <div className='bg-white pb-5 grid grid-cols-1 md:grid-cols-2'>
+        <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
             <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
             <p className='text-black py-2 px-5'>Experience the wonder of Sri lanka`s breathitaking destination and create memories that will latas a lifetime </p>
@@ -239,7 +275,7 @@ const HomePage = () => {
           </div>
 
         </div>
-        <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-2'>
+        <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
             <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
             <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you're seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
@@ -250,9 +286,9 @@ const HomePage = () => {
           </div>
 
         </div>
-        <div className='bg-white py-5'>
+        <div className='bg-white py-5 pb-20'>
           <div >
-          <div className='mx-auto w-2/3 mb-5 text-center  md:text-3xl lg:text-5xl px-2 text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
+            <div className='mx-auto w-2/3 text-center pb-20  md:text-3xl lg:text-5xl px-2 text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
           </div>
           <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-3'>
             <div className=' grid col-span-1 md:col-span-1 m-auto'>
@@ -299,10 +335,71 @@ const HomePage = () => {
             title="Tour Guide, Tabroscape"
           />
         </div> */}
+        <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5'>
+          <div className='grid col-span-1 '>
+            <div className='text-center text-2xl lg:text-3xl xl:mx-20 font-extrabold text-black'>
+              <h1 className='lg:pr-10'>Discover the Beauty of Sri Lanka with Tabroscape's Exciting Tour Packages</h1>
+            </div>
+          </div>
+          <div className='grid col-span-1 pr-5 bg-white text-black'>
+            <p>Experience the wonders of Sri Lanka's tourism industry with Tabroscape. With our wide range of tour packages and exceptional services, we ensure an unforgettable journey.</p>
+            <div className='grid grid-cols-1 lg:grid-cols-2 py-10'>
+              <div className='grid col-span-1'>
+                <h1 className='text-4xl font-extrabold'>50% Increase</h1>
+                <p>in Tourist Arrivals to Sri Lanka in the Past</p>
+              </div>
+              <div className='grid col-span-1'>
+                <h1 className='text-4xl font-extrabold'>50% Increase</h1>
+                <p>in Tabroscape's Customer Base in the Last Year
+                  Year</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div className='grid grid-cols-1 pb-5 px-5 bg-white'>
+          <div className='h-auto'><img className='w-full h-1/2' src="./colombo.jpg" alt="" /></div>
+        </div>
+
+        <section className=" bg-white mx-auto px-5 py-8">
+          <h2 className="text-3xl text-black text-center font-bold mb-2">FAQs</h2>
+          <p className='text-center text-black pb-5'>Find the answer common quetions abot travl planning,packages, and services offerend by Tabroscape.</p>
+
+          <div className="grid grid-cols-1  gap-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 ease-in-out ${faq.isOpen ? 'border border-blue-500' : ''
+                  }`}
+              >
+                <button
+                  className="w-full text-left text-lg font-medium text-gray-900 hover:text-blue-500 focus:outline-none focus:text-blue-500"
+                  onClick={() => toggleFaq(index)}
+                >
+                  {faq.question}
+                  {faq.isOpen && <span className="float-right text-blue-500">&#9660;</span>} {/* Down arrow indicator */}
+                  {!faq.isOpen && <span className="float-right text-blue-500">&#9650;</span>} {/* Up arrow indicator */}
+                </button>
+                {faq.isOpen && (
+                  <div className="mt-2">
+                    <p className="text-base text-gray-700">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <h2 className="text-3xl text-black text-center font-bold mt-5 mb-2">Still have questions?</h2>
+          <p className='text-center text-black'>Contract us for more information</p>
+          <Link href="/ContactUs">
+            <div className=" flex justify-center mt-2  ">
+              <Button className='justify-center text-center  border-2 border-slate-800 text-black hover:bg-cyan-700 hover:border-none' >Contact</Button>
+            </div>
+          </Link>
+
+        </section>
 
 
-        
-    
+
 
 
         <MapContainer />
