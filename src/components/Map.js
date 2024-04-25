@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const MyMap = () => {
     const [map, setMap] = useState(null);
+    const [selectedLocation, setSelectedLocation] = useState(null);
     const mapRef = useRef(null);
 
     useEffect(() => {
@@ -20,77 +23,65 @@ const MyMap = () => {
                 const newMap = new google.maps.Map(mapRef.current, mapOptions);
                 setMap(newMap);
 
-                // Add marker for Colombo
-                const colomboMarker = new google.maps.Marker({
-                    position: { lat: 6.9271, lng: 79.8612 },
-                    map: newMap,
-                    title: 'Colombo',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-                });
-                const colomboInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Colombo</div>',
-                });
-                colomboInfoWindow.open(newMap, colomboMarker);
+                const locations = [
+                    {
+                        title: 'Colombo',
+                        position: { lat: 6.9271, lng: 79.8612 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                        images: [
+                            { image: '/colombo.jpg', caption: 'Captivating Colombo' },
+                            { image: '/colombo2.jpg', caption: 'Beautiful Colombo Beach' },
+                            { image: '/colombo5.jpg', caption: 'Colombo Cityscape' },
+                            { image: '/colombo4.jpg', caption: 'Jami Ul-Alfar Mosque' }
+                        ]
+                    },
+                    {
+                        title: 'Sigiriya',
+                        position: { lat: 7.9544, lng: 80.7567 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                        images: [{ image: '/sigiriya.jpg', caption: 'Captivating Sigiriya' },
+                        { image: '/sigiriya2.jpg', caption: 'Beautiful Sigiriya View' }, { image: '/sigiriya3.jpg', caption: 'Sigiriya View' }]
+                    },
 
-                // Add marker for Sigiriya
-                const sigiriyaMarker = new google.maps.Marker({
-                    position: { lat: 7.9544, lng: 80.7567 },
-                    map: newMap,
-                    title: 'Sigiriya',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
-                });
-                const sigiriyaInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Sigiriya</div>',
-                });
-                sigiriyaInfoWindow.open(newMap, sigiriyaMarker);
+                    {
+                        title: 'Galle',
+                        position: { lat: 6.0481, lng: 80.2170 }, icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', image: ['/galle.jpg']
+                    },
+                    { title: 'Kandy', position: { lat: 7.2906, lng: 80.6358 }, icon: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png', image: ['/kandy.jpg'] },
+                    { title: 'Jaffna', position: { lat: 9.6686, lng: 80.0224 }, icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', image: ['/jaffna.jpg'] },
+                    { title: 'Trincomalee', position: { lat: 8.5775, lng: 81.2288 }, icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png', image: ['/trincomalee.jpg'] },
+                    { title: 'Ella', position: { lat: 6.8781, lng: 81.0579 }, icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', image: ['/ella.jpg'] },
+                    { title: 'Nuwara Eliya', position: { lat: 6.9497, lng: 80.7891 }, icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png', image: ['/nuwara-eliya.jpg'] },
+                    { title: 'Polonnaruwa', position: { lat: 7.9403, lng: 81.0188 }, icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', image: ['/polonnaruwa.jpg'] },
+                    { title: 'Unawatuna', position: { lat: 6.0077, lng: 80.7666 }, icon: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png', image: ['/unawatuna.jpg'] },
 
-                // Add marker for Ella
-                const ellaMarker = new google.maps.Marker({
-                    position: { lat: 6.8781, lng: 81.0579 },
-                    map: newMap,
-                    title: 'Ella',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
-                });
-                const ellaInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Ella</div>',
-                });
-                ellaInfoWindow.open(newMap, ellaMarker);
 
-                // Add marker for Nuwara Eliya
-                const nuwaraEliyaMarker = new google.maps.Marker({
-                    position: { lat: 6.9497, lng: 80.7891 },
-                    map: newMap,
-                    title: 'Nuwara Eliya',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
-                });
-                const nuwaraEliyaInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Nuwara Eliya</div>',
-                });
-                nuwaraEliyaInfoWindow.open(newMap, nuwaraEliyaMarker);
+                    // Add other locations with similar structure
+                ];
 
-                // Add marker for Polonnaruwa
-                const polonnaruwaMarker = new google.maps.Marker({
-                    position: { lat: 7.9403, lng: 81.0188 },
-                    map: newMap,
-                    title: 'Polonnaruwa',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png',
-                });
-                const polonnaruwaInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Polonnaruwa</div>',
-                });
-                polonnaruwaInfoWindow.open(newMap, polonnaruwaMarker);
+                // Set Colombo as the default selected location
+                const defaultLocation = locations.find(location => location.title === 'Colombo');
+                if (defaultLocation) {
+                    setSelectedLocation(defaultLocation);
+                }
 
-                // Add marker for Unawatuna
-                const unawatunaMarker = new google.maps.Marker({
-                    position: { lat: 6.0077, lng: 80.7666 },
-                    map: newMap,
-                    title: 'Unawatuna',
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+                locations.forEach(location => {
+                    const marker = new google.maps.Marker({
+                        position: location.position,
+                        map: newMap,
+                        title: location.title,
+                        icon: location.icon,
+                    });
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `<div style="color: black;">${location.title}</div>`,
+                    });
+
+                    marker.addListener('click', () => {
+                        setSelectedLocation(location);
+                        infoWindow.open(newMap, marker);
+                    });
                 });
-                const unawatunaInfoWindow = new google.maps.InfoWindow({
-                    content: '<div style="color: black;">Unawatuna</div>',
-                });
-                unawatunaInfoWindow.open(newMap, unawatunaMarker);
             }
         };
 
@@ -99,13 +90,32 @@ const MyMap = () => {
 
     return (
         <div className='section'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mb-3 bg-white '>
+            <h1 style={{ fontFamily: 'cursive' }} className='flex justify-center text-black text-3xl font-mono'>Our Destinations Locations</h1>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 pt-10 mb-3 bg-white'>
                 <div className='col-md-12 p-4'>
-                    <h1 style={{ fontFamily: 'cursive' }} className='text-center text-black text-3xl font-mono'>Our Destinations Locations</h1>
-                    <img style={{ width: '100%', height: '525px' }} src="/colombo.jpg" className="w-full h-auto" alt="Map" />
+                    {selectedLocation && selectedLocation.images && selectedLocation.images.length > 0 ? (
+                        <Carousel showArrows={false}
+                            infiniteLoop={true}
+                            autoPlay={true}
+                            interval={5000}
+                            showThumbs={false}>
+                            {selectedLocation.images.map((imageObj, index) => (
+                                <div key={index}>
+                                     <img
+                                        src={imageObj.image}
+                                        alt={`${selectedLocation.title} ${index + 1}`}
+                                        style={{ height: '400px', objectFit: 'cover' }} // Set a consistent height for all images
+                                    />
+                                    <p className="legend bg-none">{imageObj.caption}</p> {/* Display individual caption for each image */}
+                                </div>
+                            ))}
+                        </Carousel>
+                    ) : (
+                        <p className='text-black'>No images available for the selected location.</p>
+                    )}
                 </div>
                 <div className='col-md-12 p-4'>
-                    <div ref={mapRef} style={{ width: '100%', height: '600px' }} />
+                    <div ref={mapRef} className='w-full h-full' style={{ height: '400px' }} />
                 </div>
             </div>
         </div>

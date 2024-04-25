@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
-import Layouts from '@/src/layout/Layouty';
+import Layout from '@/src/layout/Layouty';
+import React, { useState, Component } from 'react';
+import CountrySelector from  '@/src/components/CountrySelector';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    contactNumber: '',
     email: '',
+    country: '', // Ensure 'country' field is properly managed
+    inquiry: '',
+  });
+
+  const [alert, setAlert] = useState({
+    show: false,
     message: '',
+    type: '', // 'success' or 'error'
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCountryChange = (selectedCountry) => {
+    setFormData((prevData) => ({ ...prevData, country: selectedCountry }));
   };
 
   const handleSubmit = async (e) => {
@@ -25,59 +39,107 @@ const ContactUs = () => {
       });
 
       if (response.ok) {
-        console.log('Message sent successfully!');
-        alert('Message sent successfully!'); // Add alert message
-        // Handle success, e.g., show a success message to the user
+        // Email sent successfully
+        setAlert({ show: true, message: 'Email sent successfully!', type: 'success' });
+
+        // Automatically hide success alert after 5 seconds
+        setTimeout(() => {
+          setAlert({ ...alert, show: false }); // Hide the alert
+        }, 5000);
       } else {
-        console.error('Failed to send message');
-        // Handle error, e.g., show an error message to the user
+        // Failed to send email
+        setAlert({ show: true, message: 'Failed to send email. Please try again later.', type: 'error' });
       }
     } catch (error) {
-      console.error('Failed to send message:', error);
-      // Handle error, e.g., show an error message to the user
+      console.error('Error sending email:', error);
+      setAlert({ show: true, message: 'Error sending email. Please try again later.', type: 'error' });
     }
   };
+
   return (
+    <Layout>
     <div>
-      <Layouts>
-        <div className="container mx-auto p-4">
-          <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
-              <p>Phone: +1 123 456 7890</p>
-              <p>Email: info@example.com</p>
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Contact Form</h2>
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block font-semibold">Name</label>
-                  <input type="text" id="name" name="name" className="w-full border border-gray-300 rounded-md px-3 py-2 text-black" required onChange={handleChange} />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block font-semibold">Email</label>
-                  <input type="email" id="email" name="email" className="w-full border border-gray-300 rounded-md px-3 py-2 text-black" required onChange={handleChange} />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="message" className="block font-semibold">Message</label>
-                  <textarea color='white' id="message" name="message" rows="4" className="w-full border border-gray-300 rounded-md px-3 py-2 text-black" required onChange={handleChange}></textarea>
-                </div>
-                <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
-                <alert color='red' id="alert" ></alert>
-              </form>
-            </div>
+      <div className="container mx-auto p-4 text-slate-600">
+        <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className='col-span-1 my-auto'>
+            <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
+            <p>Phone: +1 123 456 7890</p>
+            <p>Email: info@example.com</p>
           </div>
-          <div className="mt-8">
-            <h2 className="text-xl font-semibold mb-4">Social Media</h2>
-            <div className="flex space-x-4">
-              <a href="#" className="text-blue-500 hover:text-blue-600">Facebook</a>
-              <a href="#" className="text-blue-500 hover:text-blue-600">Twitter</a>
-            </div>
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Contact Form</h2>
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-3 bg-white rounded-lg shadow-md text-slate-600 px-10 py-12">
+              <input
+                placeholder='Your Name'
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className="px-3 rounded-md border-none border-b-2 border-slate-800"
+              />
+              <input
+                placeholder='Contact Number'
+                type="tel"
+                id="contactNumber"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                className="px-3 rounded-md border-none border-b-2 border-slate-800"
+              />
+              <input
+                placeholder='Email'
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="px-3 rounded-md border-none border-b-2 border-slate-800"
+              />
+              
+              
+              <CountrySelector
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleCountryChange}
+                className="px-3 rounded-md border-none border-b-2 border-slate-800"
+              />
+             
+              <textarea
+                placeholder='Inquiry'
+                id="inquiry"
+                name="inquiry"
+                rows={4}
+                value={formData.inquiry}
+                onChange={handleChange}
+                className="px-3 rounded-md border-none border-b-2 border-slate-800"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                SUBMIT
+              </button>
+            </form>
+            {alert.show && (
+              <div className={`alert ${alert.type === 'success' ? 'alert-success' : 'alert-error'}`}>
+                {alert.message}
+              </div>
+            )}
           </div>
         </div>
-      </Layouts>
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold mb-4">Social Media</h2>
+          <div className="flex space-x-4">
+            <a href="#" className="text-blue-500 hover:text-blue-600">Facebook</a>
+            <a href="#" className="text-blue-500 hover:text-blue-600">Twitter</a>
+          </div>
+        </div>
+      </div>
     </div>
+    </Layout>
   );
 };
 
