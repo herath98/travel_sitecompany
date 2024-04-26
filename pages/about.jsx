@@ -22,7 +22,7 @@ export default function about() {
               {/* Insert brief bios or profiles of key team members */}
               <div className="bg-gray-500 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold mb-1">John Doe</h3>
-                <p className="text-sm">Founder & CEO</p>
+                <p className="text-sm">Founder and CEO</p>
                 <p className="mt-2">Description about John Doe...</p>
               </div>
               <div className="bg-gray-500 p-4 rounded-lg">

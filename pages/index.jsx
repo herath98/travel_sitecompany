@@ -342,7 +342,7 @@ const HomePage = () => {
         <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-20'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
             <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
-            <p className='text-black py-2 px-5'>Experience the wonder of Sri lanka`s breathitaking destination and create memories that will latas a lifetime </p>
+            <p className='text-black py-2 px-5'>Experience the wonder of Sri lankas breathitaking destination and create memories that will latas a lifetime </p>
             <div className='flex justify-start text-left lg:px-10 py-2 px-5 gap-2'>
               <Button className='bg-[#082b49]'>Book</Button>
               <Button className='bg-none text-black border-spacing-0'>Explore</Button>
@@ -356,7 +356,7 @@ const HomePage = () => {
         <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2 justify-start text-start lg:px-20'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 '>
             <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
-            <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you're seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
+            <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you are seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
@@ -399,23 +399,7 @@ const HomePage = () => {
 
           </div>
         </div>
-        {/* <div className="container mx-auto px-4 py-16">
-          <Testimonial
-            name="John Doe"
-            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
-            title="Tour Guide, Tabroscape"
-          />
-              <Testimonial
-            name="John Doe"
-            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
-            title="Tour Guide, Tabroscape"
-          />
-              <Testimonial
-            name="John Doe"
-            quote="Tabroscape provided an amazing tour experience! The guides were knowledgeable and the locations were breathtaking."
-            title="Tour Guide, Tabroscape"
-          />
-        </div> */}
+ 
         <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5 justify-start text-start lg:px-20'>
           <div className='grid col-span-1 '>
             <div className='flex justify-start text-start text-2xl lg:text-3xl  font-extrabold text-black'>
