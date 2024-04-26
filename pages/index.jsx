@@ -349,7 +349,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img src='./colombo.jpg' alt="" />
+            <Image  src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -360,7 +360,7 @@ const HomePage = () => {
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img src='./colombo.jpg' alt="" />
+            <Image  src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -535,18 +535,18 @@ const HomePage = () => {
           <div className='grid grid-cols-1 py-10 px-5'>
             <div className='grid grid-cols-2 px-10 w-full'>
               <div className='grid col-span-1'>
-                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
               </div>
               <div className='grid col-span-1'>
-                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
 

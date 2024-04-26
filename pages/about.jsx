@@ -48,7 +48,7 @@ export default function about() {
               </ul>
             </div>
             <div className="bg-none p-4 rounded-lg">
-              <img src="colombo.jpg" alt="Why Choose LankaTravels" className="w-full h-auto" />
+            <Image src='/colombo.jpg' alt='Colombo' width={500} height={500} />
             </div>
           </div>
         </section>
