@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import DestinationCard from '../src/components/DestinationCard';
 import { destinations } from '../data/destinations';
@@ -122,127 +121,132 @@ const HomePage = () => {
         fontFamily: 'bagea',
       }} className='section'>
 
-        <div className="navbar bg-none text-white z-50 absolute w-full lg:px-20">
-          <div className="navbar-start">
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">
-                <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
-                  className="  rounded focus:outline-none focus:bg-blue-600">
-                  <li><a className="">Item 1</a></li></Button>
-                <li className="relative">
-                  <Dropdown style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className='bg-none' label="Dropdown button" dismissOnClick={false}>
-                    <Dropdown.Item style={{ color: 'white' }} >Dashboard</Dropdown.Item>
-                    <Dropdown.Item style={{ color: 'white' }}>Settings</Dropdown.Item>
-                    <Dropdown.Item style={{ color: 'white' }}>Earnings</Dropdown.Item>
-                    <Dropdown.Item style={{ color: 'white' }}>Sign out</Dropdown.Item>
-                  </Dropdown>
-                </li>
-                <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
-                  className="  rounded focus:outline-none focus:bg-blue-600">
-                  <li><a className="">Item 3</a></li></Button>
-              </ul>
+       
+          <div  style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)',boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',backdropFilter: 'blur(14.2px)',webkitbackdropFilter: 'blur(14.2px)'
+        }} className="navbar bg-none pb-10  text-white z-50 fixed w-full lg:px-20">
+            <div className="navbar-start">
+              <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                  <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
+                    className="  rounded focus:outline-none focus:bg-blue-600">
+                    <li><a className="">Item 1</a></li></Button>
+                  <li className="relative">
+                    <Dropdown style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className='bg-none' label="Dropdown button" dismissOnClick={false}>
+                      <Dropdown.Item style={{ color: 'white' }} >Dashboard</Dropdown.Item>
+                      <Dropdown.Item style={{ color: 'white' }}>Settings</Dropdown.Item>
+                      <Dropdown.Item style={{ color: 'white' }}>Earnings</Dropdown.Item>
+                      <Dropdown.Item style={{ color: 'white' }}>Sign out</Dropdown.Item>
+                    </Dropdown>
+                  </li>
+                  <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
+                    className="  rounded focus:outline-none focus:bg-blue-600">
+                    <li><a className="">Item 3</a></li></Button>
+                </ul>
+              </div>
+
+              <div style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className="dropdown lg:hidden">
+                <div tabIndex={0} role="button" className="btn  btn-ghost">
+                  <div className='flex justify-start text-4xl md:text-6xl  text-black'>≡</div>
+
+
+
+                </div>
+                <ul style={{ backgroundColor: 'none', border: 'none', color: 'white' }} tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-gray-800 rounded-lg w-52">
+                  <Button> <li><a className="text-white">Item 1</a></li></Button>
+                  <li>
+                    <a className="text-white">Parent</a>
+                    <ul className="p-2">
+                      <li><a className="text-white">Submenu 1</a></li>
+                      <li><a className="text-white">Submenu 2</a></li>
+                    </ul>
+                  </li>
+                  <li><a className="text-white">Item 3</a></li>
+                </ul>
+              </div>
+
             </div>
 
-            <div style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className="dropdown lg:hidden">
-              <div tabIndex={0} role="button" className="btn  btn-ghost">
-                <div className='flex justify-start text-4xl md:text-6xl  text-black'>≡</div>
-
-
-
-              </div>
-              <ul style={{ backgroundColor: 'none', border: 'none', color: 'white' }} tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-gray-800 rounded-lg w-52">
-                <Button> <li><a className="text-white">Item 1</a></li></Button>
-                <li>
-                  <a className="text-white">Parent</a>
-                  <ul className="p-2">
-                    <li><a className="text-white">Submenu 1</a></li>
-                    <li><a className="text-white">Submenu 2</a></li>
-                  </ul>
-                </li>
-                <li><a className="text-white">Item 3</a></li>
-              </ul>
+            <div className='navbar-center justify-between'>
+              <div className='justify-center'>LOGO</div>
             </div>
 
-          </div>
-
-          <div className='navbar-center justify-between'>
-            <div className='justify-center'>LOGO</div>
-          </div>
-
-          <div className="navbar-end">
-            <a className="btn bg-[#082b49] px-5 hover:bg-[#006362]">Button</a>
-          </div>
-        </div>
-        <nav className="bg-none absolute w-full z-50 mt-20  md:flex justify-center text-center lg:px-20">
-          <div className="max-w-7xl mx-auto px-4 py-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Link href="/">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
-                </Link>
-                <Link href="/about">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">About Us</span>
-                </Link>
-                <Link href="/Destinations">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Destinations</span>
-                </Link>
-                <Link href="/TourPackages">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Tour Packages</span>
-                </Link>
-                <Link href="/ContactUs">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
-                </Link>
-                <Link href="/GalleryPage">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
-                </Link>
-              </div>
-              {/* Responsive Menu */}
-              <div className="md:hidden">
-                <button className="text-white" onClick={toggleMenu}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                    />
-                  </svg>
-                </button>
-              </div>
+            <div className="navbar-end ">
+              <a className="btn bg-[#082b49] px-5 hover:bg-[#006362]">Button</a>
             </div>
-            {/* Menu Details */}
-            {isMenuOpen && (
-              <div className="md:hidden">
-                <div className="flex flex-col mt-2">
+         
+     
+          </div>
+          <nav  className="bg-none fixed w-full z-50 mt-16    md:flex justify-center text-center lg:px-20">
+            <div className="max-w-7xl mx-auto px-4 py-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <Link href="/">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Home</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
                   </Link>
                   <Link href="/about">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">About Us</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">About Us</span>
                   </Link>
                   <Link href="/Destinations">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Destinations</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Destinations</span>
                   </Link>
                   <Link href="/TourPackages">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Tour Packages</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Tour Packages</span>
                   </Link>
                   <Link href="/ContactUs">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
                   </Link>
                   <Link href="/GalleryPage">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
                   </Link>
                 </div>
+                {/* Responsive Menu */}
+                <div className="hidden">
+                  <button className="text-white" onClick={toggleMenu}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
-            )}
-          </div>
-        </nav>
+              {/* Menu Details */}
+              {isMenuOpen && (
+                <div className="md:hidden">
+                  <div className="flex flex-col mt-2">
+                    <Link href="/">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Home</span>
+                    </Link>
+                    <Link href="/about">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">About Us</span>
+                    </Link>
+                    <Link href="/Destinations">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Destinations</span>
+                    </Link>
+                    <Link href="/TourPackages">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Tour Packages</span>
+                    </Link>
+                    <Link href="/ContactUs">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
+                    </Link>
+                    <Link href="/GalleryPage">
+                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
+         
 
 
         <div className="relative">
@@ -553,7 +557,7 @@ const HomePage = () => {
 
         <Footer />
 
-       
+
 
 
       </div>
