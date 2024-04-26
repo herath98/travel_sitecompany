@@ -12,6 +12,7 @@ const DestinationDetail = () => {
   if (!destination) return <div>Destination not found</div>;
 
   return (
+    
     <div>
       <h1 className="text-3xl font-bold mb-4">{destination.name}</h1>
       <p className="text-gray-700 mb-6">{destination.description}</p>

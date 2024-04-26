@@ -82,8 +82,8 @@ const ContactUs = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="px-3 rounded-md border-none border-b-2 border-slate-800"
-                />
+                  className="px-3 rounded-md  border-none border-b-2 border-slate-800"
+                   /><hr /> 
                 <input
                   placeholder='Contact Number'
                   type="tel"
@@ -92,7 +92,7 @@ const ContactUs = () => {
                   value={formData.contactNumber}
                   onChange={handleChange}
                   className="px-3 rounded-md border-none border-b-2 border-slate-800"
-                />
+                /><hr />
                 <input
                   placeholder='Email'
                   type="email"
@@ -101,14 +101,14 @@ const ContactUs = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="px-3 rounded-md border-none border-b-2 border-slate-800"
-                />
+                /><hr />
                 <CountrySelector
                   id="country"
                   name="country"
                   value={formData.country}
                   onChange={handleCountryChange}
                   className="px-3 rounded-md border-none border-b-2 border-slate-800"
-                />
+                /><hr />
                 <textarea
                   placeholder='Inquiry'
                   id="inquiry"
@@ -117,7 +117,7 @@ const ContactUs = () => {
                   value={formData.inquiry}
                   onChange={handleChange}
                   className="px-3 rounded-md border-none border-b-2 border-slate-800"
-                />
+                /><hr />
                 <button
                   type="submit"
                   className="px-4 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
