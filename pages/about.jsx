@@ -11,7 +11,7 @@ export default function about() {
           <p className='text-justify'>
             Insert your compelling narrative about the founding and evolution of
             LankaTravels here. Highlight key milestones, achievements, and any
-            unique aspects of the company's journey.
+            unique aspects of the companys journey.
           </p>
         </section>
 
