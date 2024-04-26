@@ -1,6 +1,7 @@
 import Layouts from '@/src/layout/Layouty'
 import React from 'react'
 
+
 export default function about() {
   return (
     <Layouts>
@@ -48,7 +49,7 @@ export default function about() {
               </ul>
             </div>
             <div className="bg-none p-4 rounded-lg">
-            <Image src='/colombo.jpg' alt='Colombo' width={500} height={500} />
+            <img src='/colombo.jpg' alt='Colombo' width={500} height={500} />
             </div>
           </div>
         </section>

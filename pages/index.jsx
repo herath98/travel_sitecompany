@@ -349,7 +349,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <Image  src='./colombo.jpg' alt="" />
+            <img  src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -360,7 +360,7 @@ const HomePage = () => {
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <Image  src='./colombo.jpg' alt="" />
+            <img  src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -419,7 +419,7 @@ const HomePage = () => {
         <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5 justify-start text-start lg:px-20'>
           <div className='grid col-span-1 '>
             <div className='flex justify-start text-start text-2xl lg:text-3xl  font-extrabold text-black'>
-              <h1 className='text-start justify-start'>Discover the Beauty of Sri Lanka with Tabroscape's Exciting Tour Packages</h1>
+              <h1 className='text-start justify-start'>Discover the Beauty of Sri Lanka with Tabroscapes Exciting Tour Packages</h1>
             </div>
           </div>
           <div className='grid col-span-1 pr-5 bg-white text-black'>
@@ -431,7 +431,7 @@ const HomePage = () => {
               </div>
               <div className='grid col-span-1'>
                 <h1 className='text-4xl font-extrabold'>50% Increase</h1>
-                <p>in Tabroscape's Customer Base in the Last Year
+                <p>in Tabroscapes Customer Base in the Last Year
                   Year</p>
               </div>
 
@@ -535,18 +535,18 @@ const HomePage = () => {
           <div className='grid grid-cols-1 py-10 px-5'>
             <div className='grid grid-cols-2 px-10 w-full'>
               <div className='grid col-span-1'>
-                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
               </div>
               <div className='grid col-span-1'>
-                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <Image  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
 
