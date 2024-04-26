@@ -407,7 +407,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className='grid col-span-1 pr-5 bg-white text-black'>
-            <p>Experience the wonders of Sri Lanka's tourism industry with Tabroscape. With our wide range of tour packages and exceptional services, we ensure an unforgettable journey.</p>
+            <p>Experience the wonders of Sri Lankas tourism industry with Tabroscape. With our wide range of tour packages and exceptional services, we ensure an unforgettable journey.</p>
             <div className='grid grid-cols-1 lg:grid-cols-2 py-10'>
               <div className='grid col-span-1'>
                 <h1 className='text-4xl font-extrabold'>50% Increase</h1>
