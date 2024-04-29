@@ -18,6 +18,49 @@ const options = [
 
 const HomePage = () => {
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const screenWidth = window.innerWidth;
+
+      let scrollThreshold;
+
+      // Define different scroll thresholds based on screen width
+      if (screenWidth < 325) {
+        // For screens less than 325px (e.g., very small mobile devices)
+        scrollThreshold = 50;
+      } else if (screenWidth < 425) {
+        // For screens between 325px and 425px (e.g., small mobile devices)
+        scrollThreshold = 100;
+      } else if (screenWidth < 768) {
+        // For screens between 425px and 768px (e.g., medium-sized mobile devices)
+        scrollThreshold = 150;
+      } else if (screenWidth < 1024) {
+        // For screens 768px and above (e.g., tablets, desktops)
+        scrollThreshold = 300;
+      }
+      else {
+        scrollThreshold = 700;
+      }
+
+      if (scrollPosition > scrollThreshold) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Attach scroll event listener when component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs only once after mounting
+
 
   const [faqs, setFaqs] = useState([
     {
@@ -80,7 +123,7 @@ const HomePage = () => {
       }
 
       else {
-        setFontSize('40px');
+        setFontSize('20px');
         setIsMobile('12px');
       }
     };
@@ -121,132 +164,139 @@ const HomePage = () => {
         fontFamily: 'bagea',
       }} className='section'>
 
-       
-          <div  style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)',boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',backdropFilter: 'blur(14.2px)',webkitbackdropFilter: 'blur(14.2px)'
-        }} className="navbar bg-none pb-10  text-white z-50 fixed w-full lg:px-20">
-            <div className="navbar-start">
-              <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                  <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
-                    className="  rounded focus:outline-none focus:bg-blue-600">
-                    <li><a className="">Item 1</a></li></Button>
-                  <li className="relative">
-                    <Dropdown style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className='bg-none' label="Dropdown button" dismissOnClick={false}>
-                      <Dropdown.Item style={{ color: 'white' }} >Dashboard</Dropdown.Item>
-                      <Dropdown.Item style={{ color: 'white' }}>Settings</Dropdown.Item>
-                      <Dropdown.Item style={{ color: 'white' }}>Earnings</Dropdown.Item>
-                      <Dropdown.Item style={{ color: 'white' }}>Sign out</Dropdown.Item>
-                    </Dropdown>
-                  </li>
-                  <Button style={{ backgroundColor: 'none', border: 'none', color: 'white' }}
-                    className="  rounded focus:outline-none focus:bg-blue-600">
-                    <li><a className="">Item 3</a></li></Button>
-                </ul>
+        <div
+          className="navbar bg-none md:pb-10 text-black scroll-my-28:text-black z-50 fixed w-full lg:px-20"
+          style={{
+
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(30.2px)',
+            webkitBackdropFilter: 'blur(14.2px)',
+            color: isScrolled ? 'black' : 'white', // Change text color based on scroll
+          }}
+        >
+          <div className="navbar-start">
+            <div className="navbar-center hidden lg:flex">
+              <ul className="menu menu-horizontal px-1">
+                <button style={{ backgroundColor: 'none', }}
+                  className="  rounded focus:outline-none focus:bg-blue-600">
+                  <li><a className="">Item 1</a></li></button>
+                <li className="relative">
+                  <Dropdown style={{ color: isScrolled ? 'black' : 'white', }} className='bg-none' label="Dropdown button" dismissOnClick={false}>
+                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }} >Dashboard</Dropdown.Item>
+                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Settings</Dropdown.Item>
+                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Earnings</Dropdown.Item>
+                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Sign out</Dropdown.Item>
+                  </Dropdown>
+                </li>
+                <button style={{ backgroundColor: 'none', border: 'none', }}
+                  className="  rounded focus:outline-none focus:bg-blue-600">
+                  <li><a className="">Item 3</a></li></button>
+              </ul>
+            </div>
+
+            <div style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className="dropdown lg:hidden">
+              <div tabIndex={0} role="button" className="btn  btn-ghost">
+                <div className='flex justify-start text-4xl md:text-6xl  text-black'>≡</div>
+
+
+
               </div>
-
-              <div style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className="dropdown lg:hidden">
-                <div tabIndex={0} role="button" className="btn  btn-ghost">
-                  <div className='flex justify-start text-4xl md:text-6xl  text-black'>≡</div>
-
-
-
-                </div>
-                <ul style={{ backgroundColor: 'none', border: 'none', color: 'white' }} tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-gray-800 rounded-lg w-52">
-                  <Button> <li><a className="text-white">Item 1</a></li></Button>
-                  <li>
-                    <a className="text-white">Parent</a>
-                    <ul className="p-2">
-                      <li><a className="text-white">Submenu 1</a></li>
-                      <li><a className="text-white">Submenu 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a className="text-white">Item 3</a></li>
-                </ul>
-              </div>
-
+              <ul style={{ backgroundColor: 'none', border: 'none', }} tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-gray-800 rounded-lg w-52">
+                <button> <li><a className="text-white">Item 1</a></li></button>
+                <li>
+                  <a className="text-white">Parent</a>
+                  <ul className="p-2">
+                    <li><a className="text-white">Submenu 1</a></li>
+                    <li><a className="text-white">Submenu 2</a></li>
+                  </ul>
+                </li>
+                <li><a className="text-white">Item 3</a></li>
+              </ul>
             </div>
 
-            <div className='navbar-center justify-between'>
-              <div className='justify-center'>LOGO</div>
-            </div>
-
-            <div className="navbar-end ">
-              <a className="btn bg-[#082b49] px-5 hover:bg-[#006362]">Button</a>
-            </div>
-         
-     
           </div>
-          <nav  className="bg-none fixed w-full z-50 mt-16    md:flex justify-center text-center lg:px-20">
-            <div className="max-w-7xl mx-auto px-4 py-2">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
+
+          <div className='navbar-center justify-between'>
+            <div className='justify-center'>LOGO</div>
+          </div>
+
+          <div className="navbar-end justify-end ">
+            <Button className=" bg-[#082b49] md:px-5 hover:bg-[#006362]">Button</Button>
+          </div>
+
+
+        </div>
+        <nav style={{ color: isScrolled ? 'black' : 'white', }} className="bg-none fixed w-full z-50 mt-16    md:flex justify-center text-center lg:px-20">
+          <div className="max-w-7xl mx-auto px-4 py-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <Link href="/">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
+                </Link>
+                <Link href="/about">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">About Us</span>
+                </Link>
+                <Link href="/Destinations">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Destinations</span>
+                </Link>
+                <Link href="/TourPackages">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Tour Packages</span>
+                </Link>
+                <Link href="/ContactUs">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
+                </Link>
+                <Link href="/GalleryPage">
+                  <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
+                </Link>
+              </div>
+              {/* Responsive Menu */}
+              <div className="hidden">
+                <button className="text-white" onClick={toggleMenu}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            {/* Menu Details */}
+            {isMenuOpen && (
+              <div className="md:hidden">
+                <div className="flex flex-col mt-2">
                   <Link href="/">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Home</span>
                   </Link>
                   <Link href="/about">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">About Us</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">About Us</span>
                   </Link>
                   <Link href="/Destinations">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Destinations</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Destinations</span>
                   </Link>
                   <Link href="/TourPackages">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Tour Packages</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Tour Packages</span>
                   </Link>
                   <Link href="/ContactUs">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
                   </Link>
                   <Link href="/GalleryPage">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
+                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
                   </Link>
                 </div>
-                {/* Responsive Menu */}
-                <div className="hidden">
-                  <button className="text-white" onClick={toggleMenu}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                      />
-                    </svg>
-                  </button>
-                </div>
               </div>
-              {/* Menu Details */}
-              {isMenuOpen && (
-                <div className="md:hidden">
-                  <div className="flex flex-col mt-2">
-                    <Link href="/">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Home</span>
-                    </Link>
-                    <Link href="/about">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">About Us</span>
-                    </Link>
-                    <Link href="/Destinations">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Destinations</span>
-                    </Link>
-                    <Link href="/TourPackages">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Tour Packages</span>
-                    </Link>
-                    <Link href="/ContactUs">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
-                    </Link>
-                    <Link href="/GalleryPage">
-                      <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-          </nav>
-         
+            )}
+          </div>
+        </nav>
+
 
 
         <div className="relative">
@@ -349,7 +399,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img  src='./colombo.jpg' alt="" />
+            <img src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -360,7 +410,7 @@ const HomePage = () => {
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img  src='./colombo.jpg' alt="" />
+            <img src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -399,7 +449,7 @@ const HomePage = () => {
 
           </div>
         </div>
- 
+
         <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5 justify-start text-start lg:px-20'>
           <div className='grid col-span-1 '>
             <div className='flex justify-start text-start text-2xl lg:text-3xl  font-extrabold text-black'>
@@ -519,18 +569,18 @@ const HomePage = () => {
           <div className='grid grid-cols-1 py-10 px-5'>
             <div className='grid grid-cols-2 px-10 w-full'>
               <div className='grid col-span-1'>
-                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
               </div>
               <div className='grid col-span-1'>
-                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
               <div className='grid col-span-1'>
-                <img  src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
+                <img src="/webflow.svg" alt="Webflow" className="h-6 w-6" />
 
               </div>
 

@@ -15,7 +15,7 @@ const ScrollableGalleryPage = () => {
 
     return (
         <Layout>
-        <div className='section min-h-screen'>
+        <div className='section min-h-screen py-10'>
             <div className="container mx-auto">
                 <h1 className="text-3xl font-bold my-8">Scrollable Gallery</h1>
                 <div className="overflow-x-auto">

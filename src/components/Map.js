@@ -39,24 +39,78 @@ const MyMap = () => {
                         title: 'Sigiriya',
                         position: { lat: 7.9544, lng: 80.7567 },
                         icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
-                        images: [{ image: '/sigiriya.jpg', caption: 'Captivating Sigiriya' },
-                        { image: '/sigiriya2.jpg', caption: 'Beautiful Sigiriya View' }, { image: '/sigiriya3.jpg', caption: 'Sigiriya View' }]
+                        images: [
+                            { image: '/sigiriya.jpg', caption: 'Captivating Sigiriya' },
+                            { image: '/sigiriya2.jpg', caption: 'Beautiful Sigiriya View' },
+                            { image: '/sigiriya3.jpg', caption: 'Sigiriya View' }
+                        ]
                     },
-
                     {
                         title: 'Galle',
-                        position: { lat: 6.0481, lng: 80.2170 }, icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', image: ['/galle.jpg']
+                        position: { lat: 6.0481, lng: 80.2170 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png',
+                        images: [
+                            { image: '/galle.jpg', caption: 'Beautiful Beach View' },
+                            { image: '/galle2.jpg', caption: 'Beautiful Galle View' },
+                            { image: '/galle3.jpg', caption: 'Beautiful Galle View' }
+                        ]
                     },
-                    { title: 'Kandy', position: { lat: 7.2906, lng: 80.6358 }, icon: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png', image: ['/kandy.jpg'] },
-                    { title: 'Jaffna', position: { lat: 9.6686, lng: 80.0224 }, icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', image: ['/jaffna.jpg'] },
-                    { title: 'Trincomalee', position: { lat: 8.5775, lng: 81.2288 }, icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png', image: ['/trincomalee.jpg'] },
-                    { title: 'Ella', position: { lat: 6.8781, lng: 81.0579 }, icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', image: ['/ella.jpg'] },
-                    { title: 'Nuwara Eliya', position: { lat: 6.9497, lng: 80.7891 }, icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png', image: ['/nuwara-eliya.jpg'] },
-                    { title: 'Polonnaruwa', position: { lat: 7.9403, lng: 81.0188 }, icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png', image: ['/polonnaruwa.jpg'] },
-                    { title: 'Unawatuna', position: { lat: 6.0077, lng: 80.7666 }, icon: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png', image: ['/unawatuna.jpg'] },
-
-
-                    // Add other locations with similar structure
+                    {
+                        title: 'Kandy',
+                        position: { lat: 7.2906, lng: 80.6358 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png',
+                        images: [
+                            { image: '/kandy.jpg', caption: 'Scenic Kandy' }
+                        ]
+                    },
+                    {
+                        title: 'Jaffna',
+                        position: { lat: 9.6686, lng: 80.0224 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                        images: [
+                            { image: '/jaffna.jpg', caption: 'Charming Jaffna' }
+                        ]
+                    },
+                    {
+                        title: 'Trincomalee',
+                        position: { lat: 8.5775, lng: 81.2288 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                        images: [
+                            { image: '/trincomalee.jpg', caption: 'Tranquil Trincomalee' }
+                        ]
+                    },
+                    {
+                        title: 'Ella',
+                        position: { lat: 6.8781, lng: 81.0579 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                        images: [
+                            { image: '/ella.jpg', caption: 'Scenic Ella' }
+                        ]
+                    },
+                    {
+                        title: 'Nuwara Eliya',
+                        position: { lat: 6.9497, lng: 80.7891 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                        images: [
+                            { image: '/nuwara-eliya.jpg', caption: 'Picturesque Nuwara Eliya' }
+                        ]
+                    },
+                    {
+                        title: 'Polonnaruwa',
+                        position: { lat: 7.9403, lng: 81.0188 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png',
+                        images: [
+                            { image: '/polonnaruwa.jpg', caption: 'Historic Polonnaruwa' }
+                        ]
+                    },
+                    {
+                        title: 'Unawatuna',
+                        position: { lat: 6.0077, lng: 80.7666 },
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+                        images: [
+                            { image: '/unawatuna.jpg', caption: 'Sandy Unawatuna Beach' }
+                        ]
+                    }
                 ];
 
                 // Set Colombo as the default selected location
@@ -94,14 +148,16 @@ const MyMap = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 pt-10 mb-3 bg-white'>
                 <div className='col-md-12 p-4'>
                     {selectedLocation && selectedLocation.images && selectedLocation.images.length > 0 ? (
-                        <Carousel showArrows={false}
+                        <Carousel
+                            showArrows={false}
                             infiniteLoop={true}
                             autoPlay={true}
                             interval={5000}
-                            showThumbs={false}>
+                            showThumbs={false}
+                        >
                             {selectedLocation.images.map((imageObj, index) => (
                                 <div key={index}>
-                                     <img
+                                    <img
                                         src={imageObj.image}
                                         alt={`${selectedLocation.title} ${index + 1}`}
                                         style={{ height: '400px', objectFit: 'cover' }} // Set a consistent height for all images
