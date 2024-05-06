@@ -104,7 +104,7 @@ const ContactUs = () => {
     <Layout className=''>
       <div >
         <div className="container mx-auto p-4 text-slate-600 pt-10">
-          <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
+        
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className='col-span-1 my-auto'>
               <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
