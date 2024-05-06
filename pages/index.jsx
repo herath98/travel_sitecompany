@@ -248,11 +248,11 @@ const HomePage = () => {
         </div>
 
 
-        <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-40'>
-          <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
-            <h1 style={{ lineHeight: '1.1' }} className='text-3xl lg:text-5xl text-black  font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
-            <p className='text-black py-2 px-5'>Experience the wonder of Sri lankas breathitaking destination and create memories that will latas a lifetime </p>
-            <div className='flex justify-start text-left lg:px-10 py-2 px-5 gap-2'>
+        <div className='bg-white py-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-40'>
+          <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 '>
+            <h1 style={{ lineHeight: '1.1' }} className='text-3xl lg:text-5xl text-black  font-bold '>Discover the beauty of Sri Lanka with us</h1>
+            <p className='text-black py-2 '>Experience the wonder of Sri lankas breathitaking destination and create memories that will latas a lifetime </p>
+            <div className='flex justify-start text-left lg:px-10 py-2  gap-2'>
               <Button className='bg-[#082b49]'>Book</Button>
               <Button className='bg-none text-black border-spacing-0'>Explore</Button>
             </div>
@@ -264,8 +264,8 @@ const HomePage = () => {
         </div>
         <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2 justify-start text-start lg:px-40'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 '>
-            <h1 style={{ lineHeight: '1.2' }} className='text-3xl lg:text-5xl text-black font-bold p-5'> Unforgettable Cultural Journeys</h1>
-            <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you are seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
+            <h1 style={{ lineHeight: '1.2' }} className='text-3xl lg:text-5xl text-black font-bold '> Unforgettable Cultural Journeys</h1>
+            <p className='text-black py-2 '>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you are seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
@@ -278,7 +278,7 @@ const HomePage = () => {
             <div className='mx-auto w-2/3 text-center pb-20  md:text-3xl lg:text-5xl  text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
           </div>
           <div className='bg-white grid pb-5 grid-cols-1 gap-4 md:grid-cols-2'>
-            <div className=' grid col-span-1 md:col-span-1  m-auto'>
+            <div className=' grid col-span-1 md:col-span-1 '>
               <h1 className='text-xl text-start lg:text-3xl text-black font-bold  '>Book Your Ideal Accommodation
                 for a Memorable Stay</h1>
               <p className='text-black text-start py-2 '>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
@@ -315,7 +315,7 @@ const HomePage = () => {
               <h1 className='text-start justify-start'>Discover the Beauty of Sri Lanka with Tabroscapes Exciting Tour Packages</h1>
             </div>
           </div>
-          <div className='grid col-span-1 pr-5 bg-white text-black'>
+          <div className='grid col-span-1  bg-white text-black'>
             <p>Experience the wonders of Sri Lankas tourism industry with Tabroscape. With our wide range of tour packages and exceptional services, we ensure an unforgettable journey.</p>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 py-10'>
               <div className='grid col-span-1'>
