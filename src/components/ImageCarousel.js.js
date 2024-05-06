@@ -60,7 +60,7 @@ const CarouselComponent = ({ selectedPath }) => {
             <img
               src={item.src}
               alt={`Image ${index + 1}`}
-              style={{ height: '400px', objectFit: 'cover' }}
+              style={{ height: '620px', objectFit: 'cover' }}
               className="carousel-image rounded-3xl"
             />
             {/* Display image caption */}
