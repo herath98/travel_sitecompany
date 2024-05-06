@@ -287,7 +287,7 @@ const HomePage = () => {
           <div >
             <div className='mx-auto w-2/3 text-center pb-20  md:text-3xl lg:text-5xl  text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
           </div>
-          <div className='bg-white grid pb-5 grid-cols-1 gap-4 md:grid-cols-3'>
+          <div className='bg-white grid pb-5 grid-cols-1 gap-4 md:grid-cols-2'>
             <div className=' grid col-span-1 md:col-span-1  m-auto'>
               <h1 className='text-xl text-start lg:text-3xl text-black font-bold  '>Book Your Ideal Accommodation
                 for a Memorable Stay</h1>
@@ -307,14 +307,14 @@ const HomePage = () => {
               <button className='text-black text-start justify-start flex '> Learn More &gt;&gt;</button>
 
             </div>
-            <div className=' grid col-span-1 md:col-span-1 m-auto '>
+            {/* <div className=' grid col-span-1 md:col-span-1 m-auto '>
               <h1 className='text-xl text-start lg:text-3xl text-black font-bold'>Book Your Ideal Accommodation
                 for a Memorable Stay</h1>
               <p className='text-black text-start py-2 '>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
 
               <button className='text-black text-start justify-start flex '> Learn More &gt;&gt; </button>
 
-            </div>
+            </div> */}
 
           </div>
         </div>
