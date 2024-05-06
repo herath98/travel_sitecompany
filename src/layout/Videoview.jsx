@@ -41,9 +41,9 @@ export default function Videoview() {
     }, []); 
 
     return (
-        <div className="relative">
+        <div className="relative " style={{height:'400px',overflow:'hidden'}}>
             {/* Video player */}
-            <video className="w-full h-auto" autoPlay loop>
+            <video  className="w-full h-auto absolute top-0 left-0" autoPlay loop>
                 <source autoPlay loop src="h.mp4" type="video/mp4" />
               
                 Your browser does not support the video tag.

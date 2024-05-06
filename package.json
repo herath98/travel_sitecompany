@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
+    "@svgdotjs/svg.js": "^3.2.0",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "flowbite-react": "^0.7.8",
@@ -24,6 +25,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/svg.js": "^2.3.1",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.9.0",
     "eslint": "^8",

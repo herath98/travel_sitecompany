@@ -5,13 +5,13 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <Fragment>
-      <header>
+    <Fragment style={{ fontFamily: 'bagea' }}>
+      <header style={{ fontFamily: 'bagea' }}>
         <Videoview />
         <Navbar />
       </header>
       <main style={{
-        backgroundImage: `url(/bg2.jpg)`,
+        backgroundColor: 'white',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -19,9 +19,9 @@ const Layout = ({ children }) => {
         imageOrientation: ' from-image',
         fontFamily: 'bagea',
         
-      }} className='section wrapper lg:px-20'>{children}</main>
-      <footer>
-        <Footer />
+      }} className='section wrapper lg:px-40'>{children}</main>
+      <footer className="lg:-px-40" >
+        <Footer  />
       </footer>
     </Fragment>
   );

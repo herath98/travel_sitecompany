@@ -40,8 +40,9 @@ const TourPackages = () => {
     ];
 
     return (
-        <div className='section'>
-            <Layouts>
+        <div className='min-h-screen'>
+            <Layouts className='min-h-screen'>
+                <div className='min-h-screen py-10'>
                 <h1 className="text-3xl font-bold mb-8">List of Tour Packages</h1>
                 <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
                     {tourPackages.map(tourPackage => (
@@ -65,6 +66,7 @@ const TourPackages = () => {
                             </Link>
                         </div>
                     ))}
+                </div>
                 </div>
             </Layouts>
         </div>

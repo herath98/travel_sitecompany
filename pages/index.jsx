@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import DestinationCard from '../src/components/DestinationCard';
 import { destinations } from '../data/destinations';
 import CarouselGallery from '../src/components/CarouselGallery';
-import MapContainer from '../src/components/Map';
 import { Button, Dropdown } from 'flowbite-react';
 import Footer from './Footer/Footer';
+import MySVGComponent from '@/src/components/MySVGComponent';
+import ImageCarousel from '@/src/components/ImageCarousel.js';
 
 
 
@@ -17,6 +18,11 @@ const options = [
 ];
 
 const HomePage = () => {
+  const [selectedPath, setSelectedPath] = useState(null);
+
+  const handlePathClick = (pathId) => {
+    setSelectedPath(pathId);
+  };
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -62,42 +68,7 @@ const HomePage = () => {
   }, []); // Empty dependency array means this effect runs only once after mounting
 
 
-  const [faqs, setFaqs] = useState([
-    {
-      question: 'How to book a tour?',
-      answer: 'To book a tour with Tabroscape, simply browse our tour packages, select your preferred one, and follow the booking instructions on our website. You can also contact our customer support for assistance.',
-    },
-    {
-      question: 'What is your cancellation policy?',
-      answer:
-        'Our cancellation policy varies depending on the tour package and booking time. Please refer to the specific tour details or contact us for more information.',
-    },
-    {
-      question: "What destinations are available?",
-      answer: "Tabroscape offers tours to popular locations in Sri Lanka, including Colombo, Kandy, Galle, Sigiriya, and more. Check out our tour packages to explore these amazing destinations."
 
-    },
-    {
-      question: "Are meals included?",
-      answer: "Yes, most of our tour packages include meals. The specific details about meals and dining options are mentioned in the package description. Feel free to contact us for any dietary restrictions or special requests."
-    },
-    {
-      question: "What is the cancellation policy?",
-      answer: "Our cancellation policy varies depending on the tour package and the time of cancellation. Please refer to our Terms and Conditions for detailed information. If you have any specific questions, our customer support team is here to assist you."
-    },
-    {
-      question: "Is travel insurance included?",
-      answer: 'No, travel insurance is not included in our tour packages. We highly recommend purchasing travel insurance to protect yourself against any unforeseen circumstances. Our team can provide recommendations for reliable travel insurance providers.'
-    }
-  ]);
-
-  const toggleFaq = (index) => {
-    setFaqs(
-      faqs.map((faq, i) =>
-        i === index ? { ...faq, isOpen: !faq.isOpen } : faq
-      )
-    );
-  };
   const [fontSize, setFontSize] = useState('70px');
   const [isMobile, setIsMobile] = useState('20px');
 
@@ -155,7 +126,7 @@ const HomePage = () => {
     <div >
 
       <div style={{
-        backgroundImage: `url(/bg2.jpg)`,
+      backgroundColor: 'white',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -174,62 +145,20 @@ const HomePage = () => {
             color: isScrolled ? 'black' : 'white', // Change text color based on scroll
           }}
         >
-          <div className="navbar-start">
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">
-                <button style={{ backgroundColor: 'none', }}
-                  className="  rounded focus:outline-none focus:bg-blue-600">
-                  <li><a className="">Item 1</a></li></button>
-                <li className="relative">
-                  <Dropdown style={{ color: isScrolled ? 'black' : 'white', }} className='bg-none' label="Dropdown button" dismissOnClick={false}>
-                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }} >Dashboard</Dropdown.Item>
-                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Settings</Dropdown.Item>
-                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Earnings</Dropdown.Item>
-                    <Dropdown.Item style={{ color: isScrolled ? 'black' : 'white', }}>Sign out</Dropdown.Item>
-                  </Dropdown>
-                </li>
-                <button style={{ backgroundColor: 'none', border: 'none', }}
-                  className="  rounded focus:outline-none focus:bg-blue-600">
-                  <li><a className="">Item 3</a></li></button>
-              </ul>
-            </div>
+         
 
-            <div style={{ backgroundColor: 'none', border: 'none', color: 'white' }} className="dropdown lg:hidden">
-              <div tabIndex={0} role="button" className="btn  btn-ghost">
-                <div className='flex justify-start text-4xl md:text-6xl  text-black'>≡</div>
-
-
-
-              </div>
-              <ul style={{ backgroundColor: 'none', border: 'none', }} tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-gray-800 rounded-lg w-52">
-                <button> <li><a className="text-white">Item 1</a></li></button>
-                <li>
-                  <a className="text-white">Parent</a>
-                  <ul className="p-2">
-                    <li><a className="text-white">Submenu 1</a></li>
-                    <li><a className="text-white">Submenu 2</a></li>
-                  </ul>
-                </li>
-                <li><a className="text-white">Item 3</a></li>
-              </ul>
-            </div>
-
+          <div className='navbar-center justify-center mx-auto'>
+            <div className='justify-center'><img src="/logo.png" alt="" style={{ height: '80px', width: '80px' }} /></div>
           </div>
 
-          <div className='navbar-center justify-between'>
-            <div className='justify-center'>LOGO</div>
-          </div>
-
-          <div className="navbar-end justify-end ">
-            <Button className=" bg-[#082b49] md:px-5 hover:bg-[#006362]">Button</Button>
-          </div>
+          
 
 
         </div>
-        <nav style={{ color: isScrolled ? 'black' : 'white', }} className="bg-none fixed w-full z-50 mt-16    md:flex justify-center text-center lg:px-20">
-          <div className="max-w-7xl mx-auto px-4 py-2">
+        <nav style={{ color: isScrolled ? 'black' : 'white', }} className="bg-none fixed w-full z-50 mt-20    md:flex justify-center text-center lg:px-20">
+          <div className="max-w-7xl mx-auto px-4 py-2 gap-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
+              <div className="flex items-center gap-8">
                 <Link href="/">
                   <span style={{ color: isScrolled ? 'black' : 'white', }} className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
                 </Link>
@@ -317,81 +246,21 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <nav className="bg-[#006362]  md:flex justify-center text-center lg:px-20">
-          <div className="max-w-7xl mx-auto px-4 py-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Link href="/">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Homepage</span>
-                </Link>
-                <Link href="/about">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">About Us</span>
-                </Link>
-                <Link href="/Destinations">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Destinations</span>
-                </Link>
-                <Link href="/TourPackages">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Tour Packages</span>
-                </Link>
-                <Link href="/ContactUs">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Contact Us</span>
-                </Link>
-                <Link href="/GalleryPage">
-                  <span className="text-gray-300 ml-4 hover:text-white cursor-pointer hidden md:inline-block">Gallery</span>
-                </Link>
-              </div>
-              {/* Responsive Menu */}
-              <div className="md:hidden">
-                <button className="text-white" onClick={toggleMenu}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            {/* Menu Details */}
-            {isMenuOpen && (
-              <div className="md:hidden">
-                <div className="flex flex-col mt-2">
-                  <Link href="/">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Home</span>
-                  </Link>
-                  <Link href="/about">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">About Us</span>
-                  </Link>
-                  <Link href="/Destinations">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Destinations</span>
-                  </Link>
-                  <Link href="/TourPackages">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Tour Packages</span>
-                  </Link>
-                  <Link href="/ContactUs">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Contact Us</span>
-                  </Link>
-                  <Link href="/GalleryPage">
-                    <span className="text-gray-300 ml-4 hover:text-white cursor-pointer">Gallery</span>
-                  </Link>
-                </div>
-              </div>
-            )}
+       
+
+        <div className="page-container lg:px-40 grid grid-cols-1 lg:grid-cols-2">
+          <div className="svg-container">
+            <MySVGComponent handlePathClick={handlePathClick} />
           </div>
-        </nav>
+          <div className="carousel-container">
+            <ImageCarousel selectedPath={selectedPath} />
+          </div>
+        </div>
 
 
-        <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-20'>
+        <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-40'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 lg:px-5'>
-            <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
+            <h1 style={{ lineHeight: '1.1' }} className='text-3xl lg:text-5xl text-black  font-bold p-5'>Discover the beauty of Sri Lanka with us</h1>
             <p className='text-black py-2 px-5'>Experience the wonder of Sri lankas breathitaking destination and create memories that will latas a lifetime </p>
             <div className='flex justify-start text-left lg:px-10 py-2 px-5 gap-2'>
               <Button className='bg-[#082b49]'>Book</Button>
@@ -403,9 +272,9 @@ const HomePage = () => {
           </div>
 
         </div>
-        <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2 justify-start text-start lg:px-20'>
+        <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2 justify-start text-start lg:px-40'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 '>
-            <h1 className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
+            <h1 style={{ lineHeight: '1.2' }} className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
             <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you are seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
 
           </div>
@@ -414,12 +283,12 @@ const HomePage = () => {
           </div>
 
         </div>
-        <div className='bg-white py-5 pb-20 justify-start text-start lg:px-10 xl:px-20'>
+        <div className='bg-white py-5 pb-20 justify-start text-start lg:px-10 xl:px-40'>
           <div >
             <div className='mx-auto w-2/3 text-center pb-20  md:text-3xl lg:text-5xl  text-xl text-black font-extrabold'>Explore the Beauty of Sri Lanka with Our Guided Tours</div>
           </div>
-          <div className='bg-white grid pb-5 grid-cols-1 md:grid-cols-3'>
-            <div className=' grid col-span-1 md:col-span-1 m-auto'>
+          <div className='bg-white grid pb-5 grid-cols-1 gap-4 md:grid-cols-3'>
+            <div className=' grid col-span-1 md:col-span-1  m-auto'>
               <h1 className='text-xl text-start lg:text-3xl text-black font-bold  '>Book Your Ideal Accommodation
                 for a Memorable Stay</h1>
               <p className='text-black text-start py-2 '>We offer a variety of services including hotel bookings, guided tours, and transportation facilities.  </p>
@@ -450,7 +319,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5 justify-start text-start lg:px-20'>
+        <div className=' grid grid-cols-1 md:grid-cols-2 m-auto px-5 pb-10 bg-white gap-5 justify-start text-start lg:px-40'>
           <div className='grid col-span-1 '>
             <div className='flex justify-start text-start text-2xl lg:text-3xl  font-extrabold text-black'>
               <h1 className='text-start justify-start'>Discover the Beauty of Sri Lanka with Tabroscapes Exciting Tour Packages</h1>
@@ -458,7 +327,7 @@ const HomePage = () => {
           </div>
           <div className='grid col-span-1 pr-5 bg-white text-black'>
             <p>Experience the wonders of Sri Lankas tourism industry with Tabroscape. With our wide range of tour packages and exceptional services, we ensure an unforgettable journey.</p>
-            <div className='grid grid-cols-1 lg:grid-cols-2 py-10'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 py-10'>
               <div className='grid col-span-1'>
                 <h1 className='text-4xl font-extrabold'>50% Increase</h1>
                 <p>in Tourist Arrivals to Sri Lanka in the Past</p>
@@ -472,71 +341,18 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className='grid grid-cols-1 pb-5 px-5 bg-white justify-center text-center lg:px-20'>
-          <div className='h-auto'><img className='w-full ' src="./colombo.jpg" alt="" /></div>
-        </div>
+      
 
-        <section className=" bg-white mx-auto px-5 py-8 justify-center text-center lg:px-20">
-          <h2 className="text-3xl text-black text-center font-bold mb-2">FAQs</h2>
-          <p className='text-center text-black pb-5'>Find the answer common quetions abot travl planning,packages, and services offerend by Tabroscape.</p>
+       
 
-          <div className="grid grid-cols-1  gap-4 justify-center text-center lg:px-10">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 ease-in-out ${faq.isOpen ? 'border border-blue-500' : ''
-                  }`}
-              >
-                <button
-                  className="w-full text-left text-lg font-medium text-gray-900 hover:text-blue-500 focus:outline-none focus:text-blue-500"
-                  onClick={() => toggleFaq(index)}
-                >
-                  {faq.question}
-                  {!faq.isOpen && <span className="float-right text-blue-500">&#9660;</span>} {/* Down arrow indicator */}
-                  {faq.isOpen && <span className="float-right text-blue-500">&#9650;</span>} {/* Up arrow indicator */}
-                </button>
-                {faq.isOpen && (
-                  <div className="mt-2">
-                    <p className="text-base text-gray-700">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          <h2 className="text-3xl text-black text-center font-bold mt-5 mb-2">Still have questions?</h2>
-          <p className='text-center text-black'>Contract us for more information</p>
-          <Link href="/ContactUs">
-            <div className=" flex justify-center mt-2  ">
-              <Button className='justify-center text-center  border-2 border-slate-800 text-black hover:bg-cyan-700 hover:border-none' >Contact</Button>
-            </div>
-          </Link>
-
-        </section>
-
-
-
-        <div className='justify-center text-center bg-white lg:px-20'>
-          <MapContainer />
-        </div>
-
-
-
-
-
-        <div className='card bg-white lg:px-20 '>
-          <div className="container justify-center text-center mx-auto bg-white p-10">
-
-            <CarouselGallery images={images} />
-          </div>
-        </div>
-        <h1 className="text-3xl font-bold mb-8 mt-5 lg:px-10">All Destinations</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4 lg:px-20">
+        <h1 className="text-3xl font-bold mb-8 mt-5 lg:px-40">All Destinations</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4 lg:px-40">
           {destinations.map(destination => (
             <DestinationCard key={destination.id} destination={destination} />
           ))}
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2  gap-8 bg-white lg:px-20'>
+        <div className='grid grid-cols-1 lg:grid-cols-2  gap-8 bg-white lg:px-40'>
           <div className='grid grid-cols-1 py-10 px-5'>
             <div className="lg:text-start">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">

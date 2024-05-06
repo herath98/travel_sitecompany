@@ -6,7 +6,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
     return (
-        <div className='bg-white md:px-20'>
+        <div className='bg-white md:px-40'>
             <div className='grid text-sm grid-cols-1 md:grid-cols-4 gap-5 text-black  pt-10' >
                 <div className='col-span-1 justify-start grid '>
                     <h1>Logo</h1>
