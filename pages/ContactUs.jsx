@@ -1,4 +1,4 @@
-import Layout from '@/src/layout/Layouty';
+import Layout from '@/src/layout/LayoutContract';
 import React, { useState } from 'react';
 import CountrySelector from  '@/src/components/CountrySelector';
 import { Button } from 'flowbite-react';
@@ -103,7 +103,7 @@ const ContactUs = () => {
   return (
     <Layout className=''>
       <div >
-        <div className="container mx-auto p-4 text-slate-600">
+        <div className="container mx-auto p-4 text-slate-600 pt-10">
           <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className='col-span-1 my-auto'>

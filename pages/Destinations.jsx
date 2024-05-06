@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import DestinationCard from '../src/components/DestinationCard';
 import { destinations } from '../data/destinations'; 
-import Layouts from '@/src/layout/Layouty';
+import Layouts from '@/src/layout/LayoutDesttination';
 
 const Destinations = () => {
   return (

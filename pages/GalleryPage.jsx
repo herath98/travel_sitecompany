@@ -2,7 +2,7 @@
 import React from 'react';
 import Gallery from '../src/components/Gallery';
 import CarouselGallery from '@/src/components/CarouselGallery';
-import Layout from '@/src/layout/Layouty';
+import Layout from '@/src/layout/LayoutGallery';
 
 const ScrollableGalleryPage = () => {
     // Assuming you have some images data

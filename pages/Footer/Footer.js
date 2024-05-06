@@ -35,11 +35,11 @@ export default function Footer() {
             </div>
             <div className='flex justify-between'>
             <div className='text-xs flex justify-start gap-5 pt-2 pb-10 text-black'>
-                <h3>© 2024 Tabroscape. All rights reserved.</h3>
+                <h3>© 2024 Tabroscapes. All rights reserved.</h3>
                 
             </div>
             <div className='text-xs flex justify-end gap-5 pt-2 pb-10 text-black'>
-                <h3>Developed by <a className='underline' href='https://www.semantixlabs.com/'>SemanticLabs</a></h3>
+                <h3>Developed by <a className='underline' href='https://www.semantixlabs.com/'>SemantixLabs</a></h3>
                 
             </div>
             </div>

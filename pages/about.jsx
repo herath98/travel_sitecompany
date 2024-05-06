@@ -1,4 +1,4 @@
-import Layouts from '@/src/layout/Layouty'
+import Layouts from '@/src/layout/LayoutAbout'
 import React from 'react'
 
 

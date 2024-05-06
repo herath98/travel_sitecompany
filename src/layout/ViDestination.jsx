@@ -54,7 +54,7 @@ export default function Videoview() {
                 
                 <div className="text-center pt-10 text-white">
                     
-                    <h1 style={{ fontSize: fontSize }} className="text-5xl lg:text-9xl font-bold ">Tourpackages</h1>
+                    <h1 style={{ fontSize: fontSize }} className="text-5xl lg:text-9xl font-bold ">Destination</h1>
                     <p style={{ fontSize: isMobile }} className="text-lg">Discover the beauty of Sri Lanka with us!</p>
                 </div>
             </div>

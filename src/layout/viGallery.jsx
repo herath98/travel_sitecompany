@@ -41,7 +41,7 @@ export default function Videoview() {
     }, []); 
 
     return (
-        <div className="relative " style={{height:'400px',overflow:'hidden'}}>
+        <div className="relative " style={{height:'500px',overflow:'hidden'}}>
             {/* Video player */}
             <video  className="w-full h-auto absolute top-0 left-0" autoPlay loop>
                 <source autoPlay loop src="h.mp4" type="video/mp4" />
@@ -52,9 +52,9 @@ export default function Videoview() {
            
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                 
-                <div className="text-center pt-10 text-white">
+                <div className="text-center text-white">
                     
-                    <h1 style={{ fontSize: fontSize }} className="text-5xl lg:text-9xl font-bold ">Tourpackages</h1>
+                    <h1 style={{ fontSize: fontSize }} className="text-5xl lg:text-9xl font-bold mb-4">Gallery</h1>
                     <p style={{ fontSize: isMobile }} className="text-lg">Discover the beauty of Sri Lanka with us!</p>
                 </div>
             </div>
