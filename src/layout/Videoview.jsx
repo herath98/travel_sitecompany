@@ -41,7 +41,7 @@ export default function Videoview() {
     }, []); 
 
     return (
-        <div className="relative " style={{height:'400px',overflow:'hidden'}}>
+        <div className="relative " style={{height:'500px',overflow:'hidden'}}>
             {/* Video player */}
             <video  className="w-full h-auto absolute top-0 left-0" autoPlay loop>
                 <source autoPlay loop src="h.mp4" type="video/mp4" />

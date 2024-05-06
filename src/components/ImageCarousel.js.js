@@ -61,7 +61,7 @@ const CarouselComponent = ({ selectedPath }) => {
               src={item.src}
               alt={`Image ${index + 1}`}
               style={{ height: '400px', objectFit: 'cover' }}
-              className="carousel-image"
+              className="carousel-image rounded-3xl"
             />
             {/* Display image caption */}
             <p className="legend bg-none">{item.caption}</p>
@@ -75,7 +75,7 @@ const CarouselComponent = ({ selectedPath }) => {
           src="/colombo.jpg"
           alt="Default Colombo Image"
           style={{ height: '650px', objectFit: 'cover' }}
-          className="default-image"
+          className="default-image rounded-3xl"
         />
         <p className="default-caption">Beautiful landscape</p>
       </div>

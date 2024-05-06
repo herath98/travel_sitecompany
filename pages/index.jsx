@@ -126,7 +126,7 @@ const HomePage = () => {
     <div >
 
       <div style={{
-      backgroundColor: 'white',
+        backgroundColor: 'white',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -145,13 +145,13 @@ const HomePage = () => {
             color: isScrolled ? 'black' : 'white', // Change text color based on scroll
           }}
         >
-         
+
 
           <div className='navbar-center justify-center mx-auto'>
             <div className='justify-center'><img src="/logo.png" alt="" style={{ height: '80px', width: '80px' }} /></div>
           </div>
 
-          
+
 
 
         </div>
@@ -246,16 +246,6 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-       
-
-        <div className="page-container lg:px-40 grid grid-cols-1 lg:grid-cols-2">
-          <div className="svg-container">
-            <MySVGComponent handlePathClick={handlePathClick} />
-          </div>
-          <div className="carousel-container">
-            <ImageCarousel selectedPath={selectedPath} />
-          </div>
-        </div>
 
 
         <div className='bg-white pb-20 grid grid-cols-1 md:grid-cols-2 justify-start text-left lg:px-40'>
@@ -267,19 +257,19 @@ const HomePage = () => {
               <Button className='bg-none text-black border-spacing-0'>Explore</Button>
             </div>
           </div>
-          <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img src='./colombo.jpg' alt="" />
+          <div className=' m-2 grid col-span-1 md:col-span-1 pt-5'>
+            <img className='rounded-3xl' src='./colombo.jpg' alt="" />
           </div>
 
         </div>
         <div className='bg-white grid pb-20 grid-cols-1 md:grid-cols-2 justify-start text-start lg:px-40'>
           <div className='container grid col-span-1 md:col-span-1 m-auto lg:py-5 '>
-            <h1 style={{ lineHeight: '1.2' }} className='text-3xl lg:text-5xl text-black font-bold p-5'>Discover Unforgettable Wildlife Encounters, Cultural Journeys, and Beach Escapes</h1>
+            <h1 style={{ lineHeight: '1.2' }} className='text-3xl lg:text-5xl text-black font-bold p-5'> Unforgettable Cultural Journeys</h1>
             <p className='text-black py-2 px-5'>Immerse yourself in the wonders of Sri Lanka with Tabroscape. Our tour agency offers a variety of unique experiences, including thrilling wildlife tours, enriching cultural trips, and relaxing beach vacations. Whether you are seeking adventure, history, or relaxation, we have the perfect package for you. Start planning your dream vacation today! </p>
 
           </div>
           <div className=' m-2 grid col-span-1 md:col-span-1'>
-            <img src='./colombo.jpg' alt="" />
+            <img className='rounded-3xl' src='./colombo.jpg' alt="" />
           </div>
 
         </div>
@@ -341,9 +331,16 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      
 
-       
+        <div className="page-container lg:px-40 grid grid-cols-1 lg:grid-cols-2">
+          <div className="svg-container">
+            <MySVGComponent handlePathClick={handlePathClick} />
+          </div>
+          <div className="carousel-container">
+            <ImageCarousel  selectedPath={selectedPath} />
+          </div>
+        </div>
+
 
         <h1 className="text-3xl font-bold mb-8 mt-5 lg:px-40">All Destinations</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4 lg:px-40">
@@ -404,6 +401,8 @@ const HomePage = () => {
 
           </div>
         </div>
+
+        <hr className='pb-5'/>
 
         <Footer />
 

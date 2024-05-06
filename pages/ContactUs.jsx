@@ -110,6 +110,7 @@ const ContactUs = () => {
               <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
               <p>Phone: +1 123 456 7890</p>
               <p>Email: info@example.com</p>
+              <p>Address: Colombo Sri Lanka</p>
             </div>
             <div>
               <h2 className="text-xl font-semibold mb-2 pt-5">Contact Form</h2>
@@ -178,7 +179,7 @@ const ContactUs = () => {
           <h2 className="text-3xl text-black text-center font-bold mb-2">FAQs</h2>
           <p className='text-center text-black pb-5'>Find the answer common quetions abot travl planning,packages, and services offerend by Tabroscape.</p>
 
-          <div className="grid grid-cols-1  gap-4 justify-center text-center lg:px-10">
+          <div className="grid grid-cols-1  gap-4 justify-start text-start lg:px-10">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -195,7 +196,7 @@ const ContactUs = () => {
                 </button>
                 {faq.isOpen && (
                   <div className="mt-2">
-                    <p className="text-base text-gray-700">{faq.answer}</p>
+                    <p className="text-base justify-left justify-start flex text-gray-700">{faq.answer}</p>
                   </div>
                 )}
               </div>
